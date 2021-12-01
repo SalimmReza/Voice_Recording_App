@@ -9,7 +9,11 @@
         android:id="@+id/record_Fragment"
         android:name="com.example.voicerecordingapp.Record_Fragment"
         android:label="fragment_record_"
-        tools:layout="@layout/fragment_record_" />
+        tools:layout="@layout/fragment_record_" >
+        <action
+            android:id="@+id/action_record_Fragment_to_audio_list_F2"
+            app:destination="@id/audio_list_F2" />
+    </fragment>
     <fragment
         android:id="@+id/audio_list_F2"
         android:name="com.example.voicerecordingapp.Audio_list_F"
