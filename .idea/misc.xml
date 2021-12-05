@@ -8,11 +8,16 @@
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/drawable/music.xml" value="0.21846846846846846" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/drawable/playeer_bg.xml" value="0.14629629629629629" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/fragment_audio_list.xml" value="0.2045045045045045" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/fragment_audio_list_.xml" value="0.1" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/fragment_record_.xml" value="0.1" />
-        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/playeer_sheet.xml" value="0.2" />
+        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/playeer_sheet.xml" value="0.1" />
+        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/single_listt_item.xml" value="0.128" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_audio_list_.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

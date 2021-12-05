@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/player_sheet_id"
     android:background="@drawable/playeer_bg"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_hideable="true"
@@ -12,7 +14,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/media_header"
@@ -26,14 +28,13 @@
             android:layout_weight="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:paddingTop="24dp"
             android:src="@drawable/ic_baseline_music_note_24"
             android:paddingBottom="24dp"
             />
 
         <TextView
-            android:id="@+id/player_header_name"
+            android:id="@+id/player_header_name_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="24dp"
@@ -44,7 +45,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/player_header_title"
+            android:id="@+id/player_header_title_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -58,7 +59,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/player_file_name_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -70,7 +71,7 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_id" />
 
     <ImageButton
         android:id="@+id/player_play_btn"
@@ -78,14 +79,15 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:layout_marginTop="16dp"
-       android:background="@drawable/ic_baseline_play_arrow_24"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/player_file_name_id"
+    android:background="@drawable/ic_baseline_play_arrow_24"/>
+
 
     <ImageButton
-        android:id="@+id/imageView3"
+        android:id="@+id/back_btn_id"
         android:padding="16dp"
         android:background="@drawable/ic_baseline_fast_rewind_24"
         android:layout_width="wrap_content"
@@ -98,7 +100,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageView4"
+        android:id="@+id/forward_btn_id"
         app:layout_constraintTop_toTopOf="@+id/player_play_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,6 +113,7 @@
         />
 
     <SeekBar
+        android:id="@+id/seekbtn_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
