@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Record_Fragment">
 
@@ -47,17 +48,19 @@
         android:textSize="65sp"
         />
 
-    <ImageView
-        android:id="@+id/record_button"
+    <ImageButton
+        android:id="@+id/record_button_id"
         android:layout_width="105dp"
         android:layout_height="102dp"
         android:src="@drawable/voice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/record_timer_id" />
+        app:layout_constraintTop_toBottomOf="@id/record_timer_id"
+        android:background="@color/white"/>
 
-    <ImageView
+    <ImageButton
+        android:background="@color/white"
         android:id="@+id/record_list_btn_id"
         android:layout_width="90dp"
         android:layout_height="67dp"
@@ -66,8 +69,8 @@
         android:src="@drawable/list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toEndOf="@id/record_button"
-        app:layout_constraintTop_toTopOf="@id/record_button" />
+        app:layout_constraintStart_toEndOf="@id/record_button_id"
+        app:layout_constraintTop_toTopOf="@id/record_button_id" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,8 @@
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/fragment_audio_list_.xml" value="0.1" />
         <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/fragment_record_.xml" value="0.1" />
-        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/playeer_sheet.xml" value="0.2" />
+        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/playeer_sheet.xml" value="0.1" />
+        <entry key="..\:/university/android/_projects/VoiceRecordingApp/app/src/main/res/layout/single_listt_item.xml" value="0.128" />
       </map>
     </option>
   </component>

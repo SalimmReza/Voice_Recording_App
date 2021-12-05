@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/player_sheet_id"
     android:background="@drawable/playeer_bg"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_hideable="true"
@@ -26,7 +27,6 @@
             android:layout_weight="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:paddingTop="24dp"
             android:src="@drawable/ic_baseline_music_note_24"
             android:paddingBottom="24dp"
