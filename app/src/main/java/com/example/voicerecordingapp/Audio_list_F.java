@@ -36,6 +36,8 @@ public class Audio_list_F extends Fragment implements Voice_list_adapter.onItemL
 
     private Voice_list_adapter audio_ListAdapter;
 
+
+
     private MediaPlayer mediaPlayer = null;
     private boolean is_Playing = false;
 
