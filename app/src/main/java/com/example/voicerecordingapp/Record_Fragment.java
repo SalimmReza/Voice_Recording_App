@@ -1,12 +1,14 @@
 package com.example.voicerecordingapp;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -72,7 +74,27 @@ public class Record_Fragment extends Fragment implements View.OnClickListener {
         switch (view.getId())
         {
             case R.id.record_list_btn_id:
-                nav_Controller.navigate(R.id.action_record_Fragment_to_audio_list_F2);
+                if (is_recording)
+                {
+                    AlertDialog.Builder alert_dialog = new AlertDialog.Builder(getContext());
+                    alert_dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                              //  stop_recording();
+                                nav_Controller.navigate(R.id.action_record_Fragment_to_audio_list_F2);
+                                is_recording= false;
+                        }
+                    });
+                    alert_dialog.setNegativeButton("No", null);
+                    alert_dialog.setTitle("Audio still recording");
+                    alert_dialog.setMessage("Stop recording");
+                    alert_dialog.create().show();
+                }else
+                {
+                    nav_Controller.navigate(R.id.action_record_Fragment_to_audio_list_F2);
+                }
+
+
                 break;
 
             case R.id.record_button_id:
@@ -144,5 +166,16 @@ public class Record_Fragment extends Fragment implements View.OnClickListener {
             ActivityCompat.requestPermissions(getActivity(),new String[]{record_permission},permisssion_code);
             return false;
         }
+    }
+
+    public void onStop() {
+        super.onStop();
+        if (is_recording)
+        {
+            stop_recording();
+        }
+
+
+
     }
 }
