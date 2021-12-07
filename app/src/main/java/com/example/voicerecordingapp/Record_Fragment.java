@@ -80,9 +80,9 @@ public class Record_Fragment extends Fragment implements View.OnClickListener {
                     alert_dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int which) {
-                              //  stop_recording();
-                                nav_Controller.navigate(R.id.action_record_Fragment_to_audio_list_F2);
-                                is_recording= false;
+                            //  stop_recording();
+                            nav_Controller.navigate(R.id.action_record_Fragment_to_audio_list_F2);
+                            is_recording= false;
                         }
                     });
                     alert_dialog.setNegativeButton("No", null);
@@ -114,7 +114,7 @@ public class Record_Fragment extends Fragment implements View.OnClickListener {
                         is_recording = true;
                     }
                 }
-                    break;
+                break;
         }
     }
 
