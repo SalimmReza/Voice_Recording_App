@@ -1,6 +1,7 @@
 package com.example.voicerecordingapp;
 
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -50,6 +51,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
     private Handler seekbar_handler;
     private Runnable update_seekbar;
     private ImageButton next , prev;
+    private ImageView backbtn;
 
 
     public Audio_list_F() {
@@ -82,8 +84,8 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
         player_seekbar = view.findViewById(R.id.player_seek_id);
         next= view.findViewById(R.id.forward_btn_id);
         prev= view.findViewById(R.id.back_btn_id);
-       // toolbar =view.findViewById(R.id.toolbar_id);
-       // set_toolbar();
+        backbtn= view.findViewById(R.id.back_bt_id);
+
 
         String path = getActivity().getExternalFilesDir("/").getAbsolutePath();
         File directory = new File(path);
@@ -158,6 +160,16 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
                 }
             }
         });
+       /* backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplication(), MainActivity.class);
+                startActivity(intent);
+
+            }
+        });*/
+
+        backbtn.setOnClickListener(v-> onBackPressed());
 
         player_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -178,6 +190,11 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
             }
         });
 
+    }
+
+    private void onBackPressed() {
+        Intent intent = new Intent(getActivity().getApplication(), MainActivity.class);
+        startActivity(intent);
     }
 
   /*  private void set_toolbar() {
@@ -235,7 +252,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
         //play_Btn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_play_arrow_24, null));
         player_Header.setText("Stopped");
         is_Playing = false;
-        mediaPlayer.stop();
+ //       mediaPlayer.stop();
         seekbar_handler.removeCallbacks(update_seekbar);
     }
 
@@ -286,7 +303,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
     @Override
     public void onStop() {
         super.onStop();
-        stopAudio();
+        //stopAudio();
 
 
     }
