@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -47,6 +49,8 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
     private SeekBar player_seekbar;
     private Handler seekbar_handler;
     private Runnable update_seekbar;
+    private ImageButton next , prev;
+
 
     public Audio_list_F() {
         // Required empty public constructor
@@ -57,7 +61,12 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_audio_list_, container, false);
+
+
+
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -71,6 +80,10 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
         player_Header = view.findViewById(R.id.player_header_title_id);
         player_Filename = view.findViewById(R.id.player_file_name_id);
         player_seekbar = view.findViewById(R.id.player_seek_id);
+        next= view.findViewById(R.id.forward_btn_id);
+        prev= view.findViewById(R.id.back_btn_id);
+       // toolbar =view.findViewById(R.id.toolbar_id);
+       // set_toolbar();
 
         String path = getActivity().getExternalFilesDir("/").getAbsolutePath();
         File directory = new File(path);
@@ -105,11 +118,12 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
                     play_Btn.setBackgroundResource(R.drawable.pause);
                     mediaPlayer.pause();
 
-                  //  seekbar_handler.removeCallbacks(update_seekbar);
+                    //  seekbar_handler.removeCallbacks(update_seekbar);
                 }else
                 {
                     play_Btn.setBackgroundResource(R.drawable.ic_baseline_play_arrow_24);
                     mediaPlayer.start();
+                    player_Header.setText("Playing");
                 }
 
              /*   if (mediaPlayer.is_Playing)
@@ -121,6 +135,27 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
                     {*//*
                     resume_audio();
                 }*/
+            }
+        });
+
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayer.isPlaying())
+                {
+                    mediaPlayer.seekTo(mediaPlayer.getCurrentPosition()+2000);
+                }
+            }
+        });
+
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayer.isPlaying())
+                {
+                    mediaPlayer.seekTo(mediaPlayer.getCurrentPosition()-2000);
+                }
             }
         });
 
@@ -145,6 +180,16 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
 
     }
 
+  /*  private void set_toolbar() {
+
+        toolbar =view.findViewById(R.id.toolbar_id);
+
+      ImageView back = toolbar.findViewById(R.id.back_toolbar_id);
+
+        back.setVisibility(View.INVISIBLE);
+
+    }*/
+
     @Override
     public void onClickListener(File file, int position) {
         file_ToPlay = file;
@@ -152,7 +197,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
             stopAudio();
             playAudio(file_ToPlay);
         } else {
-                playAudio(file_ToPlay);
+            playAudio(file_ToPlay);
 
         }
     }
@@ -164,7 +209,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
             stopAudio();
             playAudio(file_ToPlay);
         } else {
-                playAudio(file_ToPlay);
+            playAudio(file_ToPlay);
 
         }
     }
@@ -187,7 +232,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
         //Stop The Audio
         //play_Btn.setBackgroundResource(R.drawable.ic_baseline_play_arrow_24);
         //
-       //play_Btn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_play_arrow_24, null));
+        //play_Btn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_play_arrow_24, null));
         player_Header.setText("Stopped");
         is_Playing = false;
         mediaPlayer.stop();
@@ -219,7 +264,7 @@ public class  Audio_list_F extends Fragment implements Voice_list_adapter.onItem
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-               //stopAudio();
+                //stopAudio();
                 player_Header.setText("Finished");
             }
         });
